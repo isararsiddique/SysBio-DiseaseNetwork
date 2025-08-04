@@ -1,7 +1,7 @@
 # 🧬 SysBio-DiseaseNetwork
 ### Comparative Systems Biology Analysis of Alzheimer's Disease, Type 2 Diabetes, and NAFLD
 
-This project performs a systems-level analysis to identify shared and unique protein-protein interaction (PPI) networks and hub-bottleneck genes associated with three chronic diseases: Alzheimer's Disease (AD), Type 2 Diabetes (T2D), and Non-Alcoholic Fatty Liver Disease (NAFLD). Using curated disease-gene associations from DisGeNET, STRING PPI data, and Cytoscape-style network analysis in Python, this work reveals key overlapping mechanisms among neurodegeneration and metabolic disorders.
+This project performs a comprehensive systems-level analysis to uncover shared and disease-specific protein-protein interaction (PPI) networks among **Alzheimer's Disease (AD)**, **Type 2 Diabetes (T2D)**, and **Non-Alcoholic Fatty Liver Disease (NAFLD)**. Leveraging disease-gene associations from **DisGeNET**, PPI data from **STRING**, and network analytics via **NetworkX**, the study identifies key hub-bottleneck genes and shared genetic mechanisms underlying neurodegeneration and metabolic dysfunction.
 
 ---
 
@@ -21,75 +21,78 @@ This project performs a systems-level analysis to identify shared and unique pro
 
 ## 1. Project Summary
 
-Alzheimer’s Disease, T2D, and NAFLD have shown clinical and molecular correlations. Recent evidence suggests that shared genetic components and signaling pathways may underlie these conditions. This project:
-- Extracts gene sets using DisGeNET (GWAS-specific evidence).
-- Constructs disease-specific PPI networks using STRING (confidence > 0.7).
-- Analyzes networks with NetworkX and identifies topological hub-bottlenecks.
-- Highlights shared genes (e.g., **APOE**, **INS**, **LEP**) indicating multi-disease relevance.
+Recent findings suggest that **AD**, **T2D**, and **NAFLD** share genetic and molecular pathways. This project explores these overlaps by:
+
+- Extracting disease-specific gene sets from *DisGeNET* (GWAS evidence).
+- Building disease-specific PPI networks via the *STRING* database.
+- Performing network centrality analysis to detect key regulators.
+- Identifying shared hub-bottleneck genes (e.g., **APOE**, **INS**, **LEP**) across conditions.
+
+The goal is to highlight systems-level interactions that may drive comorbid disease progression.
 
 ---
 
 ## 2. Dataset Description
 
-| Source       | Data                                  | Description                                   |
-|--------------|---------------------------------------|-----------------------------------------------|
-| DisGeNET     | `GWAS` filtered gene sets             | Disease-gene associations for AD, T2D, NAFLD  |
-| STRING API   | PPI networks                          | High-confidence (>0.7) physical interactions  |
-| Cytoscape    | Visual and centrality-based analysis  | Centrality scores, clustering coefficients    |
+| Source       | Data Type                     | Description                                  |
+|--------------|-------------------------------|----------------------------------------------|
+| DisGeNET     | GWAS gene sets                | Curated disease-gene associations            |
+| STRING API   | Protein interactions          | High-confidence (score > 0.7) PPI data       |
+| Cytoscape/NetworkX | Network analysis         | Graph construction and centrality analysis   |
 
 ---
 
 ## 3. Methodology
 
-1. **Data Acquisition**
-   - Retrieve curated GWAS-based gene sets from DisGeNET for AD, T2D, and NAFLD.
-   - Identify overlapping genes between diseases.
+### 🧩 Step 1: Data Acquisition
+- Download GWAS-based gene lists from DisGeNET for each disease.
+- Identify overlapping genes between diseases.
 
-2. **Network Construction**
-   - Use the STRING API to retrieve PPI data for each gene set.
-   - Construct directed graphs using NetworkX.
+### 🔗 Step 2: Network Construction
+- Query STRING API to retrieve PPIs for each gene set.
+- Construct directed graphs using NetworkX.
 
-3. **Topological Analysis**
-   - Calculate centrality metrics: degree, betweenness, closeness.
-   - Identify hub (top-degree) and bottleneck (high betweenness) proteins.
-   - Compute clustering coefficients and connected components.
+### 🧠 Step 3: Topological Analysis
+- Calculate **degree**, **betweenness**, and **closeness centralities**.
+- Detect **hub** (top-degree) and **bottleneck** (high-betweenness) proteins.
+- Evaluate clustering coefficients and connected components.
 
-4. **Gene Set Overlap**
-   - Venn-style intersection to identify shared genes across diseases.
-   - Specific overlaps: AD-T2D, AD-NAFLD, T2D-NAFLD, AD-T2D-NAFLD.
+### 🔍 Step 4: Disease Intersection
+- Perform Venn-style analysis of gene overlap.
+- Analyze intersections: AD-T2D, AD-NAFLD, T2D-NAFLD, and all three.
 
 ---
 
 ## 4. Key Results
 
-| Disease   | Top Hub-Bottleneck Genes              | Comments                                     |
-|-----------|---------------------------------------|----------------------------------------------|
-| AD        | APOE, APP, SRC                        | APOE and APP linked to neurodegeneration     |
-| T2D       | INS, APOE                             | INS as metabolic regulator, APOE shared      |
-| NAFLD     | LEP                                   | LEP regulates lipid and glucose metabolism   |
-| Shared    | APOE (AD + T2D), LEP (T2D + NAFLD)     | Indicates common pathophysiological features |
+| Disease   | Top Hub-Bottleneck Genes      | Insights                                     |
+|-----------|-------------------------------|----------------------------------------------|
+| AD        | APOE, APP, SRC                | Neurodegeneration-related regulators         |
+| T2D       | INS, APOE                     | Metabolic control and shared node (APOE)     |
+| NAFLD     | LEP                           | Hormonal control of lipid/glucose metabolism |
+| Shared    | APOE, LEP                     | Suggests convergent pathogenic mechanisms    |
 
-> **Conclusion:** APOE emerged as a critical multi-disease hub gene. NAFLD showed fewer shared nodes due to limited GWAS-validated genes.
+> 🧠 **Conclusion:** APOE is a central multi-disease hub gene. NAFLD displayed fewer shared nodes due to its limited GWAS gene set.
 
 ---
 
 ## 5. Repository Structure
 
 SysBio-DiseaseNetwork/
-├── data/ # Input gene sets and shared genes
+├── data/ # Gene lists and overlaps
 │ ├── alz_genes.tsv
 │ ├── t2d_genes.tsv
 │ ├── nafld_genes.tsv
 │ ├── shared_AD_T2D_NAFLD.tsv
 │ ├── shared_AD_NAFLD.tsv
 │ └── shared_T2D_NAFLD.tsv
-├── notebooks/ # Interactive Jupyter notebooks
-│ ├── network_analysis.ipynb
-│ └── gwas_gene_extraction.ipynb
-├── scripts/ # Python scripts for pipeline automation
+├── notebooks/ # Interactive Jupyter Notebooks
+│ ├── gwas_gene_extraction.ipynb
+│ └── network_analysis.ipynb
+├── scripts/ # Automation Scripts
 │ └── string_network_pipeline.py
-├── README.md # This file
-└── LICENSE # MIT license
+├── LICENSE
+└── README.md
 
 yaml
 Copy
@@ -100,59 +103,75 @@ Edit
 ## 6. Installation & Requirements
 
 ### ✅ Requirements
-Install dependencies using pip:
+
+Install dependencies with:
+
 ```bash
 pip install pandas networkx matplotlib gseapy tqdm requests
-Or create a virtual environment:
+Or use a virtual environment:
 
 bash
 Copy
 Edit
 python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate (Windows)
+source venv/bin/activate       # For Linux/macOS
+venv\Scripts\activate          # For Windows
 pip install -r requirements.txt
 7. Usage Guide
-⚙️ Running the Full Pipeline
-To run the PPI network analysis:
-
+⚙️ Run the Full Pipeline
 bash
 Copy
 Edit
 python scripts/string_network_pipeline.py
-You may customize the gene list inputs in the data/ folder or edit the script to adjust confidence thresholds.
+Edit gene lists inside data/ or modify confidence thresholds in the script as needed.
 
-📓 Interactive Analysis
-Open Jupyter notebooks:
+📓 Run Interactive Notebooks
+Launch:
 
 bash
 Copy
 Edit
 jupyter notebook notebooks/network_analysis.ipynb
-These notebooks allow visualization, annotation, and step-by-step execution.
+These notebooks provide step-by-step visualization and centrality-based insights.
 
 8. Outputs
-Network graphs plotted with matplotlib
+📊 Network Graphs (via Matplotlib)
 
-Tabular data: hub genes, centrality scores
+📄 Tabular Outputs
 
-Gene overlaps across diseases (TSV)
+Top hub/bottleneck genes
 
-Degree distributions and bottleneck gene lists
+Centrality metrics
 
-Plots include:
+Overlapping gene lists (TSV)
 
-Node degree histograms
+📈 Visualizations
 
-Betweenness centrality ranks
+Degree distributions
 
-Network graphs (simplified layouts)
+Betweenness centrality histograms
+
+Network topology graphs
 
 9. References
 Piñero, J., et al. (2020). The DisGeNET knowledge platform for disease genomics: 2019 update. Nucleic Acids Research.
 
-Szklarczyk, D., et al. (2021). STRING v11: protein–protein association networks. Nucleic Acids Research.
+Szklarczyk, D., et al. (2021). STRING v11: protein–protein association networks with increased coverage. Nucleic Acids Research.
 
 Sharma, S., et al. (2021). Systems biology study reveals shared pathways in AD, T2D, and NAFLD. Bioinformatics Reports.
 
 10. License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This repository is licensed under the MIT License. See the LICENSE file for details.
+
+yaml
+Copy
+Edit
+
+---
+
+### ✅ Notes:
+- You can copy this directly into your `README.md` file.
+- Make sure your actual `requirements.txt` file includes all necessary packages.
+- Add links or DOIs to the references if you plan to publish or host it on GitHub for broader access.
+
+Would you like badges (e.g., MIT License, Python Version, Last Commit) 
