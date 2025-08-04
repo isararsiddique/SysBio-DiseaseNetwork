@@ -78,6 +78,7 @@ The goal is to highlight systems-level interactions that may drive comorbid dise
 
 ## 5. Repository Structure
 
+```bash
 SysBio-DiseaseNetwork/
 ├── data/ # Gene lists and overlaps
 │ ├── alz_genes.tsv
@@ -94,11 +95,6 @@ SysBio-DiseaseNetwork/
 ├── LICENSE
 └── README.md
 
-yaml
-Copy
-Edit
-
----
 
 ## 6. Installation & Requirements
 
@@ -118,10 +114,9 @@ source venv/bin/activate       # For Linux/macOS
 venv\Scripts\activate          # For Windows
 pip install -r requirements.txt
 7. Usage Guide
+
 ⚙️ Run the Full Pipeline
-bash
-Copy
-Edit
+
 python scripts/string_network_pipeline.py
 Edit gene lists inside data/ or modify confidence thresholds in the script as needed.
 
@@ -163,15 +158,8 @@ Sharma, S., et al. (2021). Systems biology study reveals shared pathways in AD, 
 10. License
 This repository is licensed under the MIT License. See the LICENSE file for details.
 
-yaml
-Copy
-Edit
-
----
 
 ### ✅ Notes:
 - You can copy this directly into your `README.md` file.
 - Make sure your actual `requirements.txt` file includes all necessary packages.
 - Add links or DOIs to the references if you plan to publish or host it on GitHub for broader access.
-
-Would you like badges (e.g., MIT License, Python Version, Last Commit) 
