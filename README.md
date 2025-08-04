@@ -73,8 +73,7 @@ The goal is to highlight systems-level interactions that may drive comorbid dise
 
 ## 5. Repository Structure
 
-
-    ```bash
+```bash
 SysBio-DiseaseNetwork/
 ├── data/ # Gene lists and overlaps
 │ ├── alz_genes.tsv
