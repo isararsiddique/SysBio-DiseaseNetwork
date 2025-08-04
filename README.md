@@ -11,11 +11,6 @@ This project performs a comprehensive systems-level analysis to uncover shared a
 - [3. Methodology](#3-methodology)
 - [4. Key Results](#4-key-results)
 - [5. Repository Structure](#5-repository-structure)
-- [6. Installation & Requirements](#6-installation--requirements)
-- [7. Usage Guide](#7-usage-guide)
-- [8. Outputs](#8-outputs)
-- [9. References](#9-references)
-- [10. License](#10-license)
 
 ---
 
@@ -78,7 +73,8 @@ The goal is to highlight systems-level interactions that may drive comorbid dise
 
 ## 5. Repository Structure
 
-```bash
+
+    ```bash
 SysBio-DiseaseNetwork/
 ├── data/ # Gene lists and overlaps
 │ ├── alz_genes.tsv
@@ -96,70 +92,7 @@ SysBio-DiseaseNetwork/
 └── README.md
 
 
-## 6. Installation & Requirements
-
-### ✅ Requirements
-
-Install dependencies with:
-
-```bash
-pip install pandas networkx matplotlib gseapy tqdm requests
-Or use a virtual environment:
-
-bash
-Copy
-Edit
-python -m venv venv
-source venv/bin/activate       # For Linux/macOS
-venv\Scripts\activate          # For Windows
-pip install -r requirements.txt
-7. Usage Guide
-
-⚙️ Run the Full Pipeline
-
-python scripts/string_network_pipeline.py
-Edit gene lists inside data/ or modify confidence thresholds in the script as needed.
-
-📓 Run Interactive Notebooks
-Launch:
-
-bash
-Copy
-Edit
-jupyter notebook notebooks/network_analysis.ipynb
-These notebooks provide step-by-step visualization and centrality-based insights.
-
-8. Outputs
-📊 Network Graphs (via Matplotlib)
-
-📄 Tabular Outputs
-
-Top hub/bottleneck genes
-
-Centrality metrics
-
-Overlapping gene lists (TSV)
-
-📈 Visualizations
-
-Degree distributions
-
-Betweenness centrality histograms
-
-Network topology graphs
-
-9. References
-Piñero, J., et al. (2020). The DisGeNET knowledge platform for disease genomics: 2019 update. Nucleic Acids Research.
-
-Szklarczyk, D., et al. (2021). STRING v11: protein–protein association networks with increased coverage. Nucleic Acids Research.
-
-Sharma, S., et al. (2021). Systems biology study reveals shared pathways in AD, T2D, and NAFLD. Bioinformatics Reports.
-
-10. License
-This repository is licensed under the MIT License. See the LICENSE file for details.
-
-
-### ✅ Notes:
-- You can copy this directly into your `README.md` file.
-- Make sure your actual `requirements.txt` file includes all necessary packages.
-- Add links or DOIs to the references if you plan to publish or host it on GitHub for broader access.
+📬 Contact
+Isarar Siddique
+📧 isararsiddique@gmail.com
+🌐 LinkedIn | ORCID
